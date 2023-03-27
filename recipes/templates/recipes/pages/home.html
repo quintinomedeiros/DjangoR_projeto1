@@ -1,18 +1,19 @@
-{% include 'recipes/partials/head.html' %}
+{% extends 'global/base.html' %}
 
-<body>
-    {% include 'recipes/partials/header.html' %}
-    {% include 'recipes/partials/search.html' %}
-    
+    {% block title %} | Home{% endblock title %}
 
-    <main class="main-content-container">
+    {% block content %}
         <div class="main-content main-content-list container">
 
-            {% include 'recipes/partials/recipe.html' %}
-
+            {% for  recipe in recipes  %}
+                <!-- Estão sendo passadas todas as receitas para recipe.html -->
+                {% include 'recipes/partials/recipe.html' %}
+            {% empty %}
+                <div class="recipe recipe-list-item home-no-content">
+                    <h1>Desculpe! Atualmente não temos receitas para exibir.</h1><br>
+                    <h2>Volte em algumas horas que já devemos ter conteúdo novo!</h2>
+                </div>
+            {% endfor %}
         </div>
-    </main>
-
-    {% include 'recipes/partials/footer.html' %}
-</body>
-</html>
+    
+    {% endblock content %}
