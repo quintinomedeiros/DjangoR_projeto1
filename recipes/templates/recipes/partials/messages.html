@@ -1,0 +1,17 @@
+{% if messages %} 
+    <div class="main-content container messages-container">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<!--
+    from django.contrib import messages
+
+    messages.success(request, 'Epa, você foi pesquisar algo que eu vi.')
+    messages.error(request, 'Epa, você foi pesquisar algo que eu vi.')
+    messages.info(request, 'Epa, você foi pesquisar algo que eu vi.')
+-->
