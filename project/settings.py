@@ -127,7 +127,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'base_static' # rota para a pasta global de arquivos estáticos
+    BASE_DIR / 'base_statics' # rota para a pasta global de arquivos estáticos
 ]
 
 MEDIA_URL = '/media/'
