@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Test debug config",
+            "type": "python",
+            "request": "test",
+            "console": "integratedTerminal",
+            "logToFile": true
+        },
+        {
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
@@ -14,6 +21,6 @@
             ],
             "django": true,
             "justMyCode": true
-        }
+        },
     ]
 }

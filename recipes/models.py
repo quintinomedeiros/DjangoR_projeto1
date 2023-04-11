@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
+from django.utils.text import slugify
+import time
 
 class Category(models.Model):
     name = models.CharField(max_length=65)
@@ -27,3 +30,16 @@ class Recipe(models.Model):
 
     def __str__(self): # Mostra o nome da categoria no painel admin
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse('recipes:recipe', args=(self.id,))
+    
+    def save(self, *args, **kwargs):
+        timestr = time.strftime('%M%S')
+        if not self.slug:
+            slug = (self.title),'-',(timestr)
+            slug = f'{slugify(slug)}'
+            self.slug = slug
+
+        return super().save(*args, **kwargs)
+    
